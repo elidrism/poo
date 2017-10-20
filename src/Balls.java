@@ -5,15 +5,19 @@ public class Balls {
 
 	
 	private LinkedList<Point> balles;
-	private LinkedList<Point> ballesInit;
+	private LinkedList<Point> ballesInit = new LinkedList<Point>();
 	public Balls(LinkedList<Point> balles) {
 		
 		this.balles = balles;
-		this.ballesInit = balles;
+		// POUR VOIR INIT, nécessaire de faire une copie de chaque point 
+		for (Point p : balles) {
+
+			this.ballesInit.add((Point)p.clone());
+		}
 		
 	}
 	
-	void translate(int dx, int dy) {
+	public void translate(int dx, int dy) {
 		
 		for (Point b : balles) {
 			
@@ -22,7 +26,7 @@ public class Balls {
 		
 	}
 	
-	void reInit() {
+	public void reInit() {
 		
 		for (int i = 0; i < balles.size(); i++) {
 			
@@ -45,7 +49,10 @@ public class Balls {
 		
 	}
 	
-	
+	// pas sûr de la sécu de ca, renvoyer la liste, bof bof. FAire copie ?
+	public LinkedList<Point> getBallsList() {
+		return this.balles;
+	}
 
 	
 }
