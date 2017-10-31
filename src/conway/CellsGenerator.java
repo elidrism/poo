@@ -5,14 +5,12 @@ import java.util.Random;
 
 public class CellsGenerator {
 
-	private int width;
-	private int height;
+
 	private Cell[][] cellsGenerated;
 	
 	public CellsGenerator(int width, int height) {
 		
-		this.width = width;
-		this.height = height;
+
 		cellsGenerated = new Cell[height][width];
 		
 		Random r = new Random();
