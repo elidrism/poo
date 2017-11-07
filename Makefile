@@ -27,8 +27,7 @@ testGUI:
 	javac -d bin -classpath bin/gui.jar -sourcepath src src/TestGUI.java
 
 testBalles:
-	javac -d bin -classpath bin/gui.jar -sourcepath src 
-src/TestBalles.java
+	javac -d bin -classpath bin/gui.jar -sourcepath src src/TestBalles.java
 
 
 # Execution:
