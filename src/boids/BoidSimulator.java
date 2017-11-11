@@ -17,7 +17,6 @@ public class BoidSimulator implements Simulable {
 	private GUISimulator gui;
 	
 	public BoidSimulator(GUISimulator gui) {
-		// TODO Auto-generated constructor stub
 		super();
 		this.gui = gui;
 		
@@ -70,7 +69,7 @@ public class BoidSimulator implements Simulable {
 			
 			if (!b.equals(bi) && Math.abs(b.getPosition().distance(bi.getPosition())) < 100) {
 				
-				oppositeForce = oppositeForce.substract(Vector.substract(b.getPosition(), bi.getPosition()));
+				oppositeForce.substract(Vector.substract(b.getPosition(), bi.getPosition()));
 				
 			}
 			

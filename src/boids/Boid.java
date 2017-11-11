@@ -6,7 +6,7 @@ package boids;
 public class Boid {
 
 	private Vector position;
-//	private Vector nextPosition;
+	private Vector nextPosition;
 	
 
 
@@ -39,9 +39,9 @@ public class Boid {
 	}
 
 
-//	public void setPosition(Vector position) {
-//		this.position = position;
-//	}
+	public void setPosition(Vector position) {
+		this.position = position;
+	}
 
 
 //	public Vector getNextPosition() {
@@ -49,11 +49,14 @@ public class Boid {
 //	}
 //
 //
-//	public void setNextPosition(Vector nextPosition) {
-//		this.nextPosition = nextPosition;
-//	}
+	public void setNextPosition(Vector nextPosition) {
+		this.nextPosition = nextPosition;
+	}
 
 
+	/**
+	 * @return
+	 */
 	public Vector getVelocity() {
 		return velocity;
 	}
