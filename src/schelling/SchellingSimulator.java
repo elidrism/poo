@@ -2,10 +2,13 @@ package schelling;
 
 import java.awt.Point;
 import java.util.LinkedList;
+import java.util.Queue;
 
 import gui.GUISimulator;
 import gui.Simulable;
 import immigration.MultiCell;
+
+// RENDRE CHOIX DU LIEU DE DEMENAGEMENT RANDOM ?
 
 public class SchellingSimulator implements Simulable {
 
@@ -15,8 +18,8 @@ public class SchellingSimulator implements Simulable {
 	private MultiCell[][] cellsNext;
 	private MultiCell[][] cellsInit;
 	
-	private LinkedList<Point> vacant = new LinkedList<Point>();
-	private LinkedList<Point> vacantCurr = new LinkedList<Point>();
+	private Queue<Point> vacant = new LinkedList<Point>();
+	private Queue<Point> vacantCurr = new LinkedList<Point>();
 	
 	private GUISimulator gui;
 	

@@ -115,9 +115,9 @@ public class ConwaySimulator implements Simulable {
 				}
 				else {
 					cells[i][j] = new Cell(j*10 + 5, i*10 + 5, Color.GRAY, Color.white, 10, false);
+					
 				}
 				gui.addGraphicalElement(cells[i][j]);
-				
 				
 			}
 
