@@ -44,7 +44,7 @@ public class BoidSimulator implements Simulable {
 		Vector perceivedCenter = new Vector(0, 0);
 		int counter = 0;
 		for (Boid bi : boids) {
-			if (!b.equals(bi)) {
+			if (!b.equals(bi) && canSee(b, bi)) {
 				
 				// pcj = pcj + bi.position
 				perceivedCenter.add(bi.getPosition()); 
@@ -71,7 +71,7 @@ public class BoidSimulator implements Simulable {
 		
 		for (Boid bi : boids) {
 			
-			if (!b.equals(bi) && Math.abs(b.getPosition().distance(bi.getPosition())) < 100) {
+			if (!b.equals(bi) && Math.abs(b.getPosition().distance(bi.getPosition())) < 100 && canSee(b, bi)) {
 				
 				oppositeForce.substract(Vector.substract(b.getPosition(), bi.getPosition()));
 				
@@ -88,7 +88,7 @@ public class BoidSimulator implements Simulable {
 		Vector perceivedVelocity = new Vector(0, 0);
 		int counter = 0;
 		for (Boid bi : boids) {
-			if (!b.equals(bi)) {
+			if (!b.equals(bi) && canSee(b, bi)) {
 				
 				// pcj = pcj + bi.position
 				perceivedVelocity.add(bi.getVelocity()); 
@@ -123,6 +123,30 @@ public class BoidSimulator implements Simulable {
 			
 		}
 		 
+	}
+	
+	// Can b see c ? 
+	private boolean canSee(Boid b, Boid c) {
+		
+		// Jusqu'à quel angle un boid voit autour de lui
+		double angleVision = Math.PI*3/2;
+		// Jusqu'ou voit un boid autour de lui
+		int distanceVision = 10;
+		
+		if (b.getPosition().distance(c.getPosition()) > distanceVision) {
+			return false;
+		}
+		
+		Vector bc = new Vector(c.getPosition().x - b.getPosition().x, c.getPosition().y - b.getPosition().y);
+		
+		double angle = Math.acos(Vector.scalProd(b.getVelocity(), bc)/(Vector.norme(b.getVelocity())*Vector.norme(bc)));
+		
+		if (angle > angleVision) 
+			return false;
+		else 
+			return true;
+		
+		
 	}
 	
 }

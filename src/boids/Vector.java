@@ -91,6 +91,18 @@ public class Vector extends Point {
 		
 	}
 	
+	public static double scalProd(Vector v1, Vector v2) {
+		
+		return v1.x*v2.x + v1.y*v2.y;
+		
+	}
+	
+	public static double norme(Vector v1) {
+		
+		return scalProd(v1, v1);
+		
+	}
+	
 	// TODO
 	private void reduce() {
 		
