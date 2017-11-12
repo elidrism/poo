@@ -81,8 +81,39 @@ public class Vector extends Point {
 
 	public void reset() {
 
-		this.x = 1;
-		this.y = 1;
+		this.x = 0;
+		this.y = 0;
+
+	}
+
+	public static double scalProd(Vector v1, Vector v2) {
+
+		return v1.x*v2.x + v1.y*v2.y;
+
+	}
+
+	public static double norme(Vector v1) {
+
+		return scalProd(v1, v1);
+
+	}
+
+	// TODO
+	private void reduce() {
+
+		int pgcd = Vector.pgcd(this.x, this.y);
+		this.x = this.x/pgcd;
+		this.y = this.y/pgcd;
+
+	}
+
+	private static int pgcd(int i, int j) {
+
+		if (j == 0)
+			return i;
+		else
+			return Vector.pgcd(j, i%j);
+
 
 	}
 
