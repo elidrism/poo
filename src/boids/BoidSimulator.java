@@ -229,7 +229,7 @@ public class BoidSimulator implements Simulable {
 	private boolean canSee(Boid b, Boid c) {
 
 		// Jusqu'à quel angle un boid voit autour de lui
-		double angleVision = Math.PI*3/2;
+		double angleVision = Math.PI*3/4;
 		// Jusqu'ou voit un boid autour de lui
 		int distanceVision = 10;
 
