@@ -94,7 +94,19 @@ public class Vector extends Point {
 	// TODO
 	private void reduce() {
 		
-		//pgcd & shit
+		int pgcd = Vector.pgcd(this.x, this.y);
+		this.x = this.x/pgcd;
+		this.y = this.y/pgcd;
+		
+	}
+	
+	private static int pgcd(int i, int j) {
+		
+		if (j == 0)
+			return i;
+		else 
+			return Vector.pgcd(j, i%j);
+		
 		
 	}
 	
