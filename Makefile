@@ -21,14 +21,25 @@
 #   -classpath : repertoire dans lequel sont cherches les .class deja compiles
 #   -sourcepath : repertoire dans lequel sont cherches les .java (dependances)
 
-all: testGUI testBalles
+all: testGUI testBalls testConway testImmigration testSchelling testBoids
 
 testGUI:
 	javac -d bin -classpath bin/gui.jar -sourcepath src src/TestGUI.java
 
-testBalles:
-	javac -d bin -classpath bin/gui.jar -sourcepath src src/TestBalles.java
+testBalls:
+	javac -d bin -classpath bin/gui.jar -sourcepath src src/TestBalls.java
 
+testConway:
+	javac -d bin -classpath bin/gui.jar -sourcepath src src/conway/TestConway.java
+
+testImmigration:
+	javac -d bin -classpath bin/gui.jar -sourcepath src src/immigration/TestImmigration.java
+
+testSchelling:
+	javac -d bin -classpath bin/gui.jar -sourcepath src src/schelling/TestSchelling.java
+
+testBoids:
+	javac -d bin -classpath bin/gui.jar -sourcepath src src/boids/TestBoids.java
 
 # Execution:
 # on peut taper directement la ligne de commande :
@@ -39,8 +50,19 @@ exeGUI:
 	java -classpath bin:bin/gui.jar TestGUI
 
 exeBalles:
-	java -classpath bin:bin/gui.jar TestBalles
+	java -classpath bin:bin/gui.jar TestBalls
+
+exeConway:
+	java -classpath bin:bin/gui.jar conway/TestConway
+
+exeImmigration:
+	java -classpath bin:bin/gui.jar immigration/TestImmigration
+
+exeSchelling:
+	java -classpath bin:bin/gui.jar schelling/TestSchelling
+
+exeBoids:
+	java -classpath bin:bin/gui.jar boids/TestBoids
 
 clean:
 	rm -rf bin/*.class
-
