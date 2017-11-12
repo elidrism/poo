@@ -73,7 +73,7 @@ public class BoidSimulator implements Simulable {
 			
 			if (!b.equals(bi) && Math.abs(b.getPosition().distance(bi.getPosition())) < 100 && canSee(b, bi)) {
 				
-				oppositeForce.substract(Vector.substract(b.getPosition(), bi.getPosition()));
+				oppositeForce.substract(Vector.substract(bi.getPosition(), b.getPosition()));
 				
 			}
 			
@@ -105,6 +105,24 @@ public class BoidSimulator implements Simulable {
 			b.getNextVelocity().add(Vector.divide(Vector.substract(perceivedVelocity, b.getVelocity()), 8));
 			
 		}
+		
+	}
+	
+	private void rule4(Boid b) {
+		
+		Vector oppositeForce = new Vector(0, 0);
+		
+		int distanceToWall = 10;
+		if (b.getPosition().x < 10) {
+			
+			oppositeForce.substract(Vector.substract(new Vector(0, b.getPosition().y), b.getPosition()));
+			
+		}
+		else if (b.getPosition().x )	
+			
+		
+		
+		b.getNextVelocity().add(oppositeForce);
 		
 	}
 	
