@@ -52,13 +52,17 @@ public class BoidSimulator implements Simulable {
 			}
 		}
 		
-		// pcj = pcj / N
-		perceivedCenter.divide(counter);
+		if (counter != 0) {
+			// pcj = pcj / N
+			perceivedCenter.divide(counter);
+			
+			// (pcj - bj.position) / 100 is added to b.nextVelocity
+			// Division by 100 subjective -> means we move the vector 1% towards center of mass
+			b.getNextVelocity().add(Vector.divide(Vector.substract(perceivedCenter, b.getPosition()), 100));
+			
+		}
 		
-		// (pcj - bj.position) / 100 is added to b.nextVelocity
-		// Division by 100 subjective -> means we move the vector 1% towards center of mass
-		b.getNextVelocity().add(Vector.divide(Vector.substract(perceivedCenter, b.getPosition()), 100));
-		
+
 	}
 	
 	private void rule2(Boid b) {
@@ -72,6 +76,33 @@ public class BoidSimulator implements Simulable {
 				oppositeForce.substract(Vector.substract(b.getPosition(), bi.getPosition()));
 				
 			}
+			
+		}
+		
+		b.getNextVelocity().add(oppositeForce);
+		
+	}
+	
+	private void rule3(Boid b) {
+		
+		Vector perceivedVelocity = new Vector(0, 0);
+		int counter = 0;
+		for (Boid bi : boids) {
+			if (!b.equals(bi)) {
+				
+				// pcj = pcj + bi.position
+				perceivedVelocity.add(bi.getVelocity()); 
+				counter++;
+			}
+		}
+		
+		if (counter != 0) {
+			// pcj = pcj / N
+			perceivedVelocity.divide(counter);
+			
+			
+			// Division by 8 subjective
+			b.getNextVelocity().add(Vector.divide(Vector.substract(perceivedVelocity, b.getVelocity()), 8));
 			
 		}
 		
