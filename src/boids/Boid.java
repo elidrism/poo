@@ -6,7 +6,7 @@ package boids;
 public class Boid {
 
 	private Vector position;
-	private Vector nextPosition;
+//	private Vector nextPosition;
 	
 
 
@@ -49,9 +49,9 @@ public class Boid {
 //	}
 //
 //
-	public void setNextPosition(Vector nextPosition) {
-		this.nextPosition = nextPosition;
-	}
+//	public void setNextPosition(Vector nextPosition) {
+//		this.nextPosition = nextPosition;
+//	}
 
 
 	/**

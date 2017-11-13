@@ -39,6 +39,7 @@ public class BoidSimulator implements Simulable {
 	}
 	
 	// RULES DANS BOID ?
+	// Barycentre des positions
 	private void rule1(Boid b) {
 		
 		Vector perceivedCenter = new Vector(0, 0);
@@ -61,6 +62,7 @@ public class BoidSimulator implements Simulable {
 		
 	}
 	
+	// Non collisions
 	private void rule2(Boid b) {
 		
 		Vector oppositeForce = new Vector(0, 0);

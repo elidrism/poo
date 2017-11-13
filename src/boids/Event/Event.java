@@ -3,9 +3,11 @@ package boids.Event;
 public abstract class Event implements Comparable<Event> {
 	
 	protected long date;
+	protected EventManager eventManager;
 
-	public Event(long date) {
+	public Event(long date, EventManager eventManager) {
 		this.date = date;
+		this.eventManager = eventManager;
 	}
 
 	public long getDate() {
