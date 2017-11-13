@@ -18,7 +18,7 @@ public class EventMoving extends Event {
 	@Override
 	public void execute() {
 		System.out.println("Boid moving :" + this.position.toString()); // Debug
-		boid.setPosition(this.position);
+		boid.getPosition().add(boid.getVelocity());
 	}
 
 }
